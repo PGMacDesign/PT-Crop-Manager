@@ -1,4 +1,4 @@
-package pgmacdesign.ptcropmanager.datamodels;
+package pgmacdesign.ptcropmanager.datamodels.responsemodels;
 
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;

@@ -4,6 +4,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface APIInterface {
 
@@ -17,11 +18,10 @@ public interface APIInterface {
     String PATH_COMMENTS = "/comments";
     String PATH_PHOTOS = "/photos";
     String PATH_PLACES = "/places";
+    String PATH_MEMBERS = "/members";
 
     String PATH_ID = "/{id}";
     String PATH_OWNER_ID = "/{ownerId}";
-    String PATH_OWNER = "/owner";
-    String PATH_POSTS_OWNER = "/author";
 
     String DOT_JSON = ".json";
 
@@ -30,10 +30,10 @@ public interface APIInterface {
     //region Crops
 
     /**
-     * Get all crops
+     * Get all crops (Paginated in sets)
      */
     @GET(PATH_CROPS + DOT_JSON)
-    Call<ResponseBody> getCrops();
+    Call<ResponseBody> getCrops(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Crop
@@ -47,10 +47,10 @@ public interface APIInterface {
     //region Gardens
 
     /**
-     * Get all Gardens
+     * Get all Gardens (Paginated in sets)
      */
     @GET(PATH_GARDENS + DOT_JSON)
-    Call<ResponseBody> getGardens();
+    Call<ResponseBody> getGardens(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Garden
@@ -63,7 +63,7 @@ public interface APIInterface {
      * Get a Garden Owner
      * @param ownerId owner id
      */
-    @GET(PATH_GARDENS + PATH_OWNER + PATH_OWNER_ID + DOT_JSON)
+    @GET(PATH_GARDENS + PATH_OWNER_ID + DOT_JSON)
     Call<ResponseBody> getGardenOwner(@Path("ownerId") String ownerId);
 
     //endregion
@@ -71,10 +71,10 @@ public interface APIInterface {
     //region Plantings
 
     /**
-     * Get all Plantings
+     * Get all Plantings (Paginated in sets)
      */
     @GET(PATH_PLANTINGS + DOT_JSON)
-    Call<ResponseBody> getPlantings();
+    Call<ResponseBody> getPlantings(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Planting
@@ -87,7 +87,7 @@ public interface APIInterface {
      * Get a Planting Owner
      * @param ownerId owner id
      */
-    @GET(PATH_PLANTINGS + PATH_OWNER + PATH_OWNER_ID + DOT_JSON)
+    @GET(PATH_PLANTINGS + PATH_OWNER_ID + DOT_JSON)
     Call<ResponseBody> getPlantingOwner(@Path("ownerId") String ownerId);
 
     //endregion
@@ -95,10 +95,10 @@ public interface APIInterface {
     //region Seeds
 
     /**
-     * Get all Seeds
+     * Get all Seeds (Paginated in sets)
      */
     @GET(PATH_SEEDS + DOT_JSON)
-    Call<ResponseBody> getSeeds();
+    Call<ResponseBody> getSeeds(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Garden
@@ -111,7 +111,7 @@ public interface APIInterface {
      * Get a Seed Owner
      * @param ownerId owner id
      */
-    @GET(PATH_SEEDS + PATH_OWNER + PATH_OWNER_ID + DOT_JSON)
+    @GET(PATH_SEEDS + PATH_OWNER_ID + DOT_JSON)
     Call<ResponseBody> getSeedOwner(@Path("ownerId") String ownerId);
 
     //endregion
@@ -119,10 +119,10 @@ public interface APIInterface {
     //region Posts
 
     /**
-     * Get all Posts
+     * Get all Posts (Paginated in sets)
      */
     @GET(PATH_POSTS + DOT_JSON)
-    Call<ResponseBody> getPosts();
+    Call<ResponseBody> getPosts(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Post
@@ -135,7 +135,7 @@ public interface APIInterface {
      * Get a Post Owner
      * @param ownerId owner id
      */
-    @GET(PATH_POSTS + PATH_POSTS_OWNER + PATH_OWNER_ID + DOT_JSON)
+    @GET(PATH_POSTS + PATH_OWNER_ID + DOT_JSON)
     Call<ResponseBody> getPostOwner(@Path("ownerId") String ownerId);
 
     //endregion
@@ -143,10 +143,10 @@ public interface APIInterface {
     //region Comments
 
     /**
-     * Get all Comments
+     * Get all Comments (Paginated in sets)
      */
     @GET(PATH_COMMENTS + DOT_JSON)
-    Call<ResponseBody> getComments();
+    Call<ResponseBody> getComments(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Comment
@@ -160,10 +160,10 @@ public interface APIInterface {
     //region Photos
 
     /**
-     * Get all Photos
+     * Get all Photos (Paginated in sets)
      */
     @GET(PATH_PHOTOS + DOT_JSON)
-    Call<ResponseBody> getPhotos();
+    Call<ResponseBody> getPhotos(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Photo
@@ -177,10 +177,10 @@ public interface APIInterface {
     //region Places
 
     /**
-     * Get all Places
+     * Get all Places (Paginated in sets)
      */
     @GET(PATH_PLACES + DOT_JSON)
-    Call<ResponseBody> getPlaces();
+    Call<ResponseBody> getPlaces(@Query(value = "page") Integer page);
 
     /**
      * Get a Single Place
@@ -191,4 +191,20 @@ public interface APIInterface {
 
     //endregion
 
+    //region Members
+
+    /**
+     * Get all Members (Paginated in sets)
+     */
+    @GET(PATH_MEMBERS + DOT_JSON)
+    Call<ResponseBody> getMembers(@Query(value = "page") Integer page);
+
+    /**
+     * Get a Single Member
+     * @param id
+     */
+    @GET(PATH_MEMBERS + PATH_ID + DOT_JSON)
+    Call<ResponseBody> getMember(@Path("id") String id);
+
+    //endregion
 }

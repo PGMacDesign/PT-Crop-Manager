@@ -1,10 +1,11 @@
-package pgmacdesign.ptcropmanager.datamodels;
+package pgmacdesign.ptcropmanager.datamodels.responsemodels;
 
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -48,6 +49,8 @@ public class Crop {
     @ColumnInfo(name = "median_days_to_last_harvest", index = true)
     @SerializedName("median_days_to_last_harvest")
     private Long median_days_to_last_harvest;
+    @SerializedName("plantings")
+    private List<Planting> plantings;
 
     //endregion
 
@@ -149,6 +152,13 @@ public class Crop {
         this.median_days_to_last_harvest = median_days_to_last_harvest;
     }
 
+    public List<Planting> getPlantings() {
+        return plantings;
+    }
+
+    public void setPlantings(List<Planting> plantings) {
+        this.plantings = plantings;
+    }
 
     //endregion
 
