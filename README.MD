@@ -10,6 +10,10 @@ The other useful part of this project is that I am essentially writing a Java / 
 
 Below is the current outline for what I would like to get done in the 2 day window I have alloted: 
 
+* Manifest
+	* ~~Manifest declated with permissions as well as broadcast receivers.~~
+	* Will add File Providers if needed
+	
 * Documentation
 	* All docs should be in standard Javadoc format. (will be generated at the end of the 2 days)
     * All classes should have documentation above them.

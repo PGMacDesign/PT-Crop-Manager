@@ -57,6 +57,8 @@ public class Constants {
     public static final boolean REALM_DB_FORCE_UPDATE_IF_NEEDED = true;
 
     public static final String SHARED_PREFS_NAME = "ptcropmanager.sp";
+    public static final String TAG_FOR_LOGGING = "PTCrop";
+
     //endregion
 
 }

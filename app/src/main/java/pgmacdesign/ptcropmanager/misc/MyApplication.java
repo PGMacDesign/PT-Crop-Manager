@@ -84,11 +84,11 @@ public class MyApplication extends MultiDexApplication {
     public static synchronized PGMacTipsConfig buildPGMacTipsConfig(){
         if(pgMacTipsConfig == null) {
             pgMacTipsConfig = new PGMacTipsConfig.Builder().setLiveBuild(Constants.IS_LIVE_BUILD)
-                    .setTagForLogging("PTCrop").build(getContext());
+                    .setTagForLogging(Constants.TAG_FOR_LOGGING).build(getContext());
         } else {
             if(PGMacTipsConfig.getInstance() == null){
                 pgMacTipsConfig = new PGMacTipsConfig.Builder().setLiveBuild(Constants.IS_LIVE_BUILD)
-                        .setTagForLogging("PTCrop").build(getContext());
+                        .setTagForLogging(Constants.TAG_FOR_LOGGING).build(getContext());
             }
         }
         return pgMacTipsConfig;
