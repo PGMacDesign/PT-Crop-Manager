@@ -19,17 +19,18 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* ~~Mirror from [website](https://github.com/Growstuff/growstuff/wiki/API-Version-0) - Will need to make individual calls in order to manually view responses.~~
 	* ~~Add in ErrorModel and custom parsing.~~ 
 
-* API Calls + Wrapper
+* ~~API Calls + Wrapper~~
 	* ~~For API calls class, Will likely utilize my own library's [Retrofit Parser](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/networkclasses/retrofitutilities/RetrofitParser.java)~~
-	* Make wrapper class for static API calls so as to mimize code in Fragments and activities
+	* ~~Make wrapper class for static API calls so as to mimize code in Fragments and activities~~
 
 * Connectivity Checks
-	* Add in connectivity receiver to confirm internet availability before calls
+	* ~~Add in connectivity receiver to confirm internet availability before calls~~
 	* Utilize a snackbar for no internet connection
 	
 * Architecture
 	* App will follow standard app architecture logic and have an Activity with modular fragments 
 	* I'd like to use a navigation drawer if possible as they always look clean if done correctly
+	* ~~Standard MyApplication class as central singleton with initilized fields upon load.~~
 	
 * Android Jetpack
 	* I'd also like to make use of the new Android Jetpack modules, specifically the following:

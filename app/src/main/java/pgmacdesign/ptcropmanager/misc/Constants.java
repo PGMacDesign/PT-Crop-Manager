@@ -2,6 +2,12 @@ package pgmacdesign.ptcropmanager.misc;
 
 public class Constants {
 
+    //region Boolean Flags
+
+    public static final boolean IS_LIVE_BUILD = false;
+
+    //endregion
+
     //region Strings
 
     public static final String API_BASE_URL = "https://www.growstuff.org/";
@@ -42,6 +48,15 @@ public class Constants {
     public static final int TAG_TBD7 = -727;
     public static final int TAG_TBD8 = -728;
     public static final int TAG_TBD9 = -729;
+    //endregion
+
+    //region SP + DB Stuff
+
+    public static final String REALM_DB_NAME = "ptcropmanager.realm.db";
+    public static final int REALM_DB_VERSION = 1;
+    public static final boolean REALM_DB_FORCE_UPDATE_IF_NEEDED = true;
+
+    public static final String SHARED_PREFS_NAME = "ptcropmanager.sp";
     //endregion
 
 }
