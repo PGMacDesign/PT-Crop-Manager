@@ -32,8 +32,8 @@ public class Constants {
     public static final int TAG_SEED = -717;
     public static final int TAG_LIST_OF_SEEDS = -718;
     public static final int TAG_API_CALL_ERROR = -719;
-    public static final int TAG_TBD0 = -720;
-    public static final int TAG_TBD1 = -721;
+    public static final int TAG_MEMBER = -720;
+    public static final int TAG_LIST_OF_MEMBERS = -721;
     public static final int TAG_TBD2 = -722;
     public static final int TAG_TBD3 = -723;
     public static final int TAG_TBD4 = -724;

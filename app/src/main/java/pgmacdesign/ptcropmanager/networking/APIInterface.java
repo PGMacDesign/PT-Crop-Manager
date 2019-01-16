@@ -37,6 +37,7 @@ public interface APIInterface {
 
     /**
      * Get a Single Crop
+     *
      * @param id
      */
     @GET(PATH_CROPS + PATH_ID + DOT_JSON)
@@ -54,13 +55,16 @@ public interface APIInterface {
 
     /**
      * Get a Single Garden
+     *
      * @param id
      */
     @GET(PATH_GARDENS + PATH_ID + DOT_JSON)
     Call<ResponseBody> getGarden(@Path("id") String id);
 
     /**
+     * NOTE! API Lists this as working, but does not seem to be. Will omit from API Calls for now
      * Get a Garden Owner
+     *
      * @param ownerId owner id
      */
     @GET(PATH_GARDENS + PATH_OWNER_ID + DOT_JSON)
@@ -78,13 +82,16 @@ public interface APIInterface {
 
     /**
      * Get a Single Planting
+     *
      * @param id
      */
     @GET(PATH_PLANTINGS + PATH_ID + DOT_JSON)
     Call<ResponseBody> getPlanting(@Path("id") String id);
 
     /**
+     * NOTE! API Lists this as working, but does not seem to be. Will omit from API Calls for now
      * Get a Planting Owner
+     *
      * @param ownerId owner id
      */
     @GET(PATH_PLANTINGS + PATH_OWNER_ID + DOT_JSON)
@@ -102,13 +109,16 @@ public interface APIInterface {
 
     /**
      * Get a Single Garden
+     *
      * @param id
      */
     @GET(PATH_SEEDS + PATH_ID + DOT_JSON)
     Call<ResponseBody> getSeed(@Path("id") String id);
 
     /**
+     * NOTE! API Lists this as working, but does not seem to be. Will omit from API Calls for now
      * Get a Seed Owner
+     *
      * @param ownerId owner id
      */
     @GET(PATH_SEEDS + PATH_OWNER_ID + DOT_JSON)
@@ -126,13 +136,16 @@ public interface APIInterface {
 
     /**
      * Get a Single Post
+     *
      * @param id
      */
     @GET(PATH_POSTS + PATH_ID + DOT_JSON)
     Call<ResponseBody> getPost(@Path("id") String id);
 
     /**
+     * NOTE! API Lists this as working, but does not seem to be. Will omit from API Calls for now
      * Get a Post Owner
+     *
      * @param ownerId owner id
      */
     @GET(PATH_POSTS + PATH_OWNER_ID + DOT_JSON)
@@ -150,6 +163,7 @@ public interface APIInterface {
 
     /**
      * Get a Single Comment
+     *
      * @param id
      */
     @GET(PATH_COMMENTS + PATH_ID + DOT_JSON)
@@ -167,6 +181,7 @@ public interface APIInterface {
 
     /**
      * Get a Single Photo
+     *
      * @param id
      */
     @GET(PATH_PHOTOS + PATH_ID + DOT_JSON)
@@ -184,6 +199,7 @@ public interface APIInterface {
 
     /**
      * Get a Single Place
+     *
      * @param id
      */
     @GET(PATH_PLACES + PATH_ID + DOT_JSON)
@@ -201,6 +217,7 @@ public interface APIInterface {
 
     /**
      * Get a Single Member
+     *
      * @param id
      */
     @GET(PATH_MEMBERS + PATH_ID + DOT_JSON)

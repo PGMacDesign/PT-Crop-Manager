@@ -10,6 +10,11 @@ The other useful part of this project is that I am essentially writing a Java / 
 
 Below is the current outline for what I would like to get done in the 2 day window I have alloted: 
 
+* Documentation
+	* All docs should be in standard Javadoc format. (will be generated at the end of the 2 days)
+    * All classes should have documentation above them.
+	* Applicable methods and functions should also have documentation.
+	
 * ~~Data models~~
 	* ~~Mirror from [website](https://github.com/Growstuff/growstuff/wiki/API-Version-0) - Will need to make individual calls in order to manually view responses.~~
 	* ~~Add in ErrorModel and custom parsing.~~ 
@@ -17,6 +22,10 @@ Below is the current outline for what I would like to get done in the 2 day wind
 * API Calls + Wrapper
 	* ~~For API calls class, Will likely utilize my own library's [Retrofit Parser](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/networkclasses/retrofitutilities/RetrofitParser.java)~~
 	* Make wrapper class for static API calls so as to mimize code in Fragments and activities
+
+* Connectivity Checks
+	* Add in connectivity receiver to confirm internet availability before calls
+	* Utilize a snackbar for no internet connection
 	
 * Architecture
 	* App will follow standard app architecture logic and have an Activity with modular fragments 
