@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PT Crop Manager</string>
+
+    <string name="connected_to_internet">Internet connectivity restored, switching to online mode.</string>
+    <string name="not_connected_to_internet">Internet connectivity lost, switching to offline mode.</string>
+    <string name="ok">Ok</string>
+    <string name="dismiss">Dismiss</string>
 </resources>

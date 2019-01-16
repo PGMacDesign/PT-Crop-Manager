@@ -1,6 +1,10 @@
 package pgmacdesign.ptcropmanager.misc;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 
 import com.pgmacdesign.pgmactips.broadcastreceivers.PGConnectivityReceiver;
 import com.pgmacdesign.pgmactips.misc.PGMacTipsConfig;
@@ -25,6 +29,8 @@ public class MyApplication extends MultiDexApplication {
     private static DisplayManagerUtilities dmu;
     //Used for managing logging statements on live builds and other config details
     private static PGMacTipsConfig pgMacTipsConfig;
+    //Used for Connectivity Listeners
+    private static BroadcastReceiver mNetworkReceiver;
     
     public MyApplication(){
         super();
@@ -123,6 +129,23 @@ public class MyApplication extends MultiDexApplication {
      * @param listener {@link PGConnectivityReceiver}
      */
     public static synchronized void setConnectivityListener(PGConnectivityReceiver.ConnectivityReceiverListener listener) {
+        if(MyApplication.mNetworkReceiver == null) {
+            MyApplication.mNetworkReceiver = new PGConnectivityReceiver();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                getContext().registerReceiver(mNetworkReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+            }
+        }
         PGConnectivityReceiver.connectivityReceiverListener = listener;
+    }
+
+    /**
+     * Remove the connectivity listener (broadcast receiver) so as to prevent memory leaks
+     */
+    public static synchronized void removeConnectivityListener() {
+        if(MyApplication.mNetworkReceiver != null ) {
+            getContext().unregisterReceiver(mNetworkReceiver);
+        }
+        PGConnectivityReceiver.connectivityReceiverListener = null;
+        MyApplication.mNetworkReceiver = null;
     }
 }
