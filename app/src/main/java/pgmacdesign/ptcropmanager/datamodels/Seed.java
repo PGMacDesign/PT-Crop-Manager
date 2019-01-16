@@ -1,6 +1,10 @@
 package pgmacdesign.ptcropmanager.datamodels;
 
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -205,8 +209,24 @@ public class Seed {
 
     //endregion
 
+    //region Utility methods
 
+    /**
+     * Get the Reflection Type utilizing Gson's {@link TypeToken} class
+     * @return {@link Type}
+     */
+    public static Type getType(){
+        return new TypeToken<Seed>(){}.getType();
+    }
 
+    /**
+     * Get an arraylist of the Reflection Type utilizing Gson's {@link TypeToken} class
+     * @return {@link Type} of a list of of the object
+     */
+    public static Type getListType(){
+        return new TypeToken<ArrayList<Seed>>(){}.getType();
+    }
+    //endregion
 
 
 
