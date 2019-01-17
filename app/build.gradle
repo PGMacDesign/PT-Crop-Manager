@@ -104,4 +104,10 @@ dependencies {
 
     //Hive progress bar. Link: https://github.com/zjywill/OverwatchProgress
     implementation 'com.github.zjywill:OverwatchProgress:1.5'
+
+    //Nice looking Spinner - https://github.com/arcadefire/nice-spinner
+    implementation 'com.github.arcadefire:nice-spinner:1.3.7'
+
+    //Photo View https://github.com/chrisbanes/PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 }

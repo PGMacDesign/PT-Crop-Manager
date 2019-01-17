@@ -1,9 +1,5 @@
 package pgmacdesign.ptcropmanager.misc;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-
 /**
  * Constants that will be unchanging throughout the app
  */
@@ -20,51 +16,6 @@ public class Constants {
     public static final String API_BASE_URL = "https://www.growstuff.org/";
     public static final String GENERIC_ERROR_STR = "An error has occurred: ";
     public static final String GENERIC_UNKNOWN_ERROR_STR = "An unknown error has occurred";
-
-    //endregion
-
-    //region Fragment Management
-    public static enum AllFragments {
-        HomeFragment("Home", "Default Home Fragment"),
-        CropsFragment("Crops", "View All Crops"),
-        CropFragment("Crop", "View Single Crop"),
-        GardensFragment("Gardens", "View All Gardens"),
-        GardenFragment("Garden", "View Single Garden"),
-        MembersFragment("Members", "View All Members"),
-        MemberFragment("Member", "View Single Member"),
-        SeedsFragment("Seeds", "View All Seeds"),
-        SeedFragment("Seed", "View Single Seed"),
-        TBD1("TBD", "TBD"),
-        TBD2("TBD", "TBD"),
-        TBD3("TBD", "TBD"),
-        TBD4("TBD", "TBD"),
-        TBD5("TBD", "TBD"),
-        TBD6("TBD", "TBD"),
-        TBD7("TBD", "TBD"),
-        TBD8("TBD", "TBD"),
-        TBD9("TBD", "TBD"),
-
-        EMPTY_FRAGMENT("Empty", "For Placeholders");
-
-        private String title;
-        private String description;
-        AllFragments(String title, String description){
-            this.title = title;
-            this.description = description;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-    }
-
-    public static List<AllFragments> getAllFragments(){
-        return new ArrayList<>(EnumSet.allOf(Constants.AllFragments.class));
-    }
 
     //endregion
 

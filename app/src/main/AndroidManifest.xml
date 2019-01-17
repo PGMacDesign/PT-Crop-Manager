@@ -21,7 +21,7 @@
         >
 
         <!-- region Activities -->
-        <activity android:name=".MainActivity"
+        <activity android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             >
             <intent-filter>

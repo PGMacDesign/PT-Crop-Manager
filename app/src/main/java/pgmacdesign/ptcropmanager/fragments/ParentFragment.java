@@ -3,9 +3,10 @@ package pgmacdesign.ptcropmanager.fragments;
 import android.content.Context;
 
 import androidx.fragment.app.Fragment;
+import pgmacdesign.ptcropmanager.interfaces.FragmentNetworkListener;
 import pgmacdesign.ptcropmanager.interfaces.MainActivityListener;
 
-public abstract class ParentFragment extends Fragment {
+public abstract class ParentFragment extends Fragment implements FragmentNetworkListener {
 
     public Context context;
     public MainActivityListener listener;

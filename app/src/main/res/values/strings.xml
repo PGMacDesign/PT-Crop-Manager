@@ -10,6 +10,8 @@
     <string name="not_connected_to_internet">Internet connectivity lost, switching to offline mode.</string>
     <string name="ok">Ok</string>
     <string name="dismiss">Dismiss</string>
+    <string name="no_photos">Could not retrieve any photos</string>
+    <string name="no_crops">Could not retrieve any crops</string>
     <!-- //endregion -->
 
     <!-- region Menu Strings -->
@@ -18,5 +20,7 @@
     <string name="gardens">Gardens</string>
     <string name="members">Members</string>
     <string name="seeds">Seeds</string>
+    <string name="crops_only_limitation">Only crops enabled in this build</string>
+    <string name="offline_mode_top_tv">Data is currently being viewed in Offline Mode</string>
     <!-- //endregion -->
 </resources>

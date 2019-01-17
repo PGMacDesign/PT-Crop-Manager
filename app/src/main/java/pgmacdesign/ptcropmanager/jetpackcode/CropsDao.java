@@ -27,7 +27,9 @@ public interface CropsDao {
 
     //region Read
     @Query("SELECT * FROM crops WHERE id IS :id")
-    LiveData<Crop> getCrop(String id);
+    LiveData<Crop> getCrop(Long id);
+    @Query("SELECT * FROM crops WHERE slug IS :slug")
+    LiveData<Crop> getCrop(String slug);
     @Query("SELECT * FROM crops")
     LiveData<List<Crop>> readAll();
     @Query("SELECT * FROM crops WHERE slug IS :slug")
