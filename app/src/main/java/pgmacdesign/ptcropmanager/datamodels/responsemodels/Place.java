@@ -10,7 +10,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Places
+ * Places (Unused in current build)
  */
 @Entity(tableName = "Places")
 public class Place {

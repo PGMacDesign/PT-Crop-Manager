@@ -12,7 +12,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Comments
+ * Comments (Unused in current build)
  */
 @Entity(tableName = "Comments")
 public class Comment {

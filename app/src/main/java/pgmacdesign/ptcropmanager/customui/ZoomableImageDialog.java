@@ -12,9 +12,13 @@ import android.widget.ImageView;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.pgmacdesign.pgmactips.utilities.ImageUtilities;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import pgmacdesign.ptcropmanager.R;
 
+/**
+ * Dialog for showing images in full screen and allowing the user to pinch-to-zoom if they choose
+ */
 public class ZoomableImageDialog extends Dialog {
 
     //region Vars
@@ -29,7 +33,13 @@ public class ZoomableImageDialog extends Dialog {
     //endregion
 
     //region Constructor
-    public ZoomableImageDialog(Context context, String imageURL) {
+
+    /**
+     * Default Constructor
+     * @param context {@link Context}
+     * @param imageURL String image URL of the actual image
+     */
+    public ZoomableImageDialog(@NonNull Context context, @NonNull String imageURL) {
         super(context);
         this.context = context;
         this.imageUrl = imageURL;

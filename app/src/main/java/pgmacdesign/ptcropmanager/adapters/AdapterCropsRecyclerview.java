@@ -28,6 +28,9 @@ import pgmacdesign.ptcropmanager.datamodels.responsemodels.Crop;
 import pgmacdesign.ptcropmanager.datamodels.responsemodels.Photo;
 import pgmacdesign.ptcropmanager.misc.Constants;
 
+/**
+ * Multipurpose recyclerview that works with both {@link Crop} and {@link Photo} objects
+ */
 public class AdapterCropsRecyclerview extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     //region Enums

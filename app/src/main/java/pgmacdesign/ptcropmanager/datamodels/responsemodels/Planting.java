@@ -11,7 +11,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Planting (individual plant attached to a user) object
+ * Planting (individual plant attached to a user) object (Unused in current build)
  */
 @Entity(tableName = "Plantings")
 public class Planting {

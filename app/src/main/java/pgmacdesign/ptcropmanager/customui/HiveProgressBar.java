@@ -10,7 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.comix.overwatch.HiveProgressView;
-import com.pgmacdesign.pgmactips.utilities.DisplayManagerUtilities;
 
 import java.util.Timer;
 
@@ -18,16 +17,27 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import pgmacdesign.ptcropmanager.R;
 
+/**
+ * Custom Indeterminite Progressbar for loading while web calls are being made
+ */
 public class HiveProgressBar  extends ProgressDialog {
 
+    /**
+     * Listener for use in dismissing, bit not being used currently
+     */
     public static interface ProgressBarUtilListener{
         public void userHitBackButton();
         public void dialogDismissed();
         public void dialogHasBeenUpForXSeconds(long numberOfSeconds);
     }
 
-    private DisplayManagerUtilities dmu;
-
+    /**
+     * Static builder method for use of creating the dialog
+     * @param context {@link Context}
+     * @param cancelable boolean, if true, can be canceled by user with back button, else, cannot
+     * @param listener {@link HiveProgressBar.OnDismissListener}
+     * @return {@link this}
+     */
     public static HiveProgressBar buildHiveDialog(Context context, boolean cancelable,
                                                   @Nullable ProgressBarUtilListener listener){
         HiveProgressBar customAlertDialog = new HiveProgressBar(context);
@@ -48,7 +58,6 @@ public class HiveProgressBar  extends ProgressDialog {
 
     private HiveProgressBar(Context context) {
         super(context);
-        this.dmu = new DisplayManagerUtilities(context);
     }
 
     private com.comix.overwatch.HiveProgressView hive_progress_view;
@@ -105,9 +114,6 @@ public class HiveProgressBar  extends ProgressDialog {
     public void onStart() {
         super.onStart();
         try {
-//            this.getWindow().setFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                    android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//            this.requestWindowFeature(Window.FEATURE_NO_TITLE);
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             this.getWindow().setLayout(width, height);
@@ -117,10 +123,8 @@ public class HiveProgressBar  extends ProgressDialog {
     }
 
     private void startCircleProgressAnimation(){
-        hive_progress_view.setVisibility(View.VISIBLE);
+        this.hive_progress_view.setVisibility(View.VISIBLE);
     }
-
-
 
     @Override
     protected void onStop() {

@@ -36,6 +36,9 @@ import pgmacdesign.ptcropmanager.jetpackcode.photos.PhotoViewModel;
 import pgmacdesign.ptcropmanager.misc.Constants;
 import pgmacdesign.ptcropmanager.networking.APICalls;
 
+/**
+ * Crops and Photos fragment combined into one.
+ */
 public class CropsFragment extends ParentFragment  {
 
     //region Static Vars

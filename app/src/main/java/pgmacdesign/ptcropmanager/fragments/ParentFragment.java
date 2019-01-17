@@ -6,6 +6,11 @@ import androidx.fragment.app.Fragment;
 import pgmacdesign.ptcropmanager.interfaces.FragmentNetworkListener;
 import pgmacdesign.ptcropmanager.interfaces.MainActivityListener;
 
+/**
+ * Parent fragment for inheritance purposes. All sub-classes of this implement hte network
+ * listener for network connectivity changes as well as have direct access to the
+ * {@link Context} and {@link MainActivityListener}
+ */
 public abstract class ParentFragment extends Fragment implements FragmentNetworkListener {
 
     public Context context;

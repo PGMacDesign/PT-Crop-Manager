@@ -11,7 +11,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Posts
+ * Posts (Unused in current build)
  */
 @Entity(tableName = "Posts")
 public class Post {

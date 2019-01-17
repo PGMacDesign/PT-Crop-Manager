@@ -12,6 +12,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import pgmacdesign.ptcropmanager.datamodels.responsemodels.Photo;
 
+/**
+ * This view model manages the photos database and serves as a wrapper for CRUD operations as well
+ */
 public class PhotoViewModel  extends AndroidViewModel {
 
     //region Vars

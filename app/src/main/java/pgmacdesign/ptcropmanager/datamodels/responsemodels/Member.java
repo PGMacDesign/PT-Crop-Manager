@@ -10,7 +10,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Members
+ * Members (Unused in current build)
  */
 @Entity(tableName = "Members")
 public class Member {

@@ -11,7 +11,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Gardens
+ * Gardens (Unused in current build)
  */
 @Entity(tableName = "Gardens")
 public class Garden {

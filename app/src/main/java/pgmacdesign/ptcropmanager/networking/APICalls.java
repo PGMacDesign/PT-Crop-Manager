@@ -25,8 +25,15 @@ import pgmacdesign.ptcropmanager.datamodels.responsemodels.Seed;
 import pgmacdesign.ptcropmanager.misc.Constants;
 import retrofit2.Call;
 
+/**
+ * Static API Calls for use throughout the app. This can be refactored into an SDK with minimal
+ * effort should one ever be desired
+ */
 public class APICalls {
 
+    /**
+     * Interface method for use with {@link retrofit2.Retrofit}
+     */
     private static APIInterface service;
 
     static {

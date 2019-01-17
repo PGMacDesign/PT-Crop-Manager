@@ -6,6 +6,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+/**
+ * API Interface defines the paths and routes to match the web api
+ */
 public interface APIInterface {
 
     //region Path and URL Strings

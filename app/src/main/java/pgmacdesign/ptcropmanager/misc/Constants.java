@@ -42,14 +42,6 @@ public class Constants {
     public static final int TAG_API_CALL_ERROR = -719;
     public static final int TAG_MEMBER = -720;
     public static final int TAG_LIST_OF_MEMBERS = -721;
-    public static final int TAG_TBD2 = -722;
-    public static final int TAG_TBD3 = -723;
-    public static final int TAG_TBD4 = -724;
-    public static final int TAG_TBD5 = -725;
-    public static final int TAG_TBD6 = -726;
-    public static final int TAG_TBD7 = -727;
-    public static final int TAG_TBD8 = -728;
-    public static final int TAG_TBD9 = -729;
     //endregion
 
     //region SP + DB Stuff

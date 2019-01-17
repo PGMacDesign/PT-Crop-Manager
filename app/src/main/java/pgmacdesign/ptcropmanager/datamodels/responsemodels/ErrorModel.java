@@ -6,6 +6,9 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * Error model, for parsing back issues with the server
+ */
 public class ErrorModel {
     //region Vars
     @SerializedName("status")

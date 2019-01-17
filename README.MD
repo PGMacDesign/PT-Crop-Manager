@@ -46,7 +46,7 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* ~~Implement Observers using ViewModel + Room combo on any visible Recyclerviews~~
 	* ~~Utilize View models to maintain state upon rotation~~
 
-* Constants
+* ~~Constants~~
 	* ~~Utilize integer tags in combination with my library's [On Task Complete Listener](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/adaptersandlisteners/OnTaskCompleteListener.java) to ping back responses for web calls~~
 	* ~~Maintain any other needed tags, flags, or booleans within the Constants for simple reference.~~
 	
@@ -66,11 +66,27 @@ Below is the current outline for what I would like to get done in the 2 day wind
 * ~~UI Components~~
 	* ~~Make heavy use of Recyclerviews (look into making mutli-purpose adapter)~~
 		
-* Animations - Skipped for now
-	* If time permits, add in animations to UI elements
-	* Also add in loading view / progress bar with custom animation built into it
+* ~~Animations~~ - Skipped
+	* ~~If time permits, add in animations to UI elements~~
+	* ~~Also add in loading view / progress bar with custom animation built into it~~
 	
 	
 	
 	
-Whatever I do not finish I will leave up here as a TODO for the future.	
+# Closing and Lessons Learned
+
+Development has stopped (as planned) after a little under 2 days of development. Some of the better accomplishments include:
+
+* The project is stable and loads just fine. Crashes seem to be far and few between
+* It will successfully load from the API and load images as well as crops
+* Pagination was successfully implemented and should theoretically scroll until the web API runs out of items to return
+* Jetpack --> Room --> DB entry was integrated and serves the purpose of providing access to the crops list when offline
+* UI is clean and has a simple nav drawer, custom recyclerviews, custom dialogs, and ripple effects on clicks.
+* Despite them being unused, created response body objects to mirror those listed on the Growstuff Github link.
+* Utilized external dependencies via gradle as well as annotation processors and the schema output for the DB.
+* Created a workable SDK that can be modularized into a single project if those at Growstuff would like it.
+* Utilized abstract parent classes and subsequent inheritance for future-proofing more activities and fragments that may be added.
+
+
+Next time I do this type of project I will probably research the API more prior as I had assumed that this API would return image URLs nested within the Crop object, but that does not seem to be the case in the current version; this nixxed any plans on having miniature circular images next to the text in the Recyclerviews. 
+

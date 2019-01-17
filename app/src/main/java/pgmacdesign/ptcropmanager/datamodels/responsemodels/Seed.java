@@ -11,7 +11,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * Seeds
+ * Seeds (Unused in current build)
  */
 @Entity(tableName = "Seeds")
 public class Seed {
