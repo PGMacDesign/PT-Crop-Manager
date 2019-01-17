@@ -12,13 +12,13 @@ Below is the current outline for what I would like to get done in the 2 day wind
 
 * Manifest
 	* ~~Manifest declated with permissions as well as broadcast receivers.~~
-	* Will add File Providers if needed
+	* ~~Will add File Providers if needed - Not needed~~
 	
-* Documentation
-	* All docs should be in standard Javadoc format. (will be generated at the end of the 2 days)
-    * All classes should have documentation above them.
-	* Applicable methods and functions should also have documentation.
-	* Make sure to use //region and //endregion tags for simpler code folding
+* ~~Documentation~~
+	* ~~All docs should be in standard Javadoc format. (will be generated at the end of the 2 days)~~
+    * ~~All classes should have documentation above them.~~
+	* ~~Applicable methods and functions should also have documentation.~~
+	* ~~Make sure to use //region and //endregion tags for simpler code folding~~
 	
 * ~~Data models~~
 	* ~~Mirror from [website](https://github.com/Growstuff/growstuff/wiki/API-Version-0) - Will need to make individual calls in order to manually view responses.~~
@@ -32,11 +32,11 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* ~~Add in connectivity receiver to confirm internet availability before calls~~
 	* ~~Utilize a snackbar for no internet connection~~
 	
-* Architecture
+* ~~Architecture~~
 	* ~~App will follow standard app architecture logic and have an Activity with modular fragments~~ 
 	* ~~I'd like to use a navigation drawer if possible as they always look clean if done correctly~~
 	* ~~Standard MyApplication class as central singleton with initilized fields upon load.~~
-	* Decided to scale things back a bit for simplicity. Will leave the API Interface as is and just ignore unused endpoints.
+	* ~~Decided to scale things back a bit for simplicity. Will leave the API Interface as is and just ignore unused endpoints.~~
 	
 * Android Jetpack
 	* I'd also like to make use of the new Android Jetpack modules, specifically the following:
@@ -47,7 +47,7 @@ Below is the current outline for what I would like to get done in the 2 day wind
 
 * Constants
 	* ~~Utilize integer tags in combination with my library's [On Task Complete Listener](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/adaptersandlisteners/OnTaskCompleteListener.java) to ping back responses for web calls~~
-	* Maintain any other needed tags, flags, or booleans within the Constants for simple reference.
+	* ~~Maintain any other needed tags, flags, or booleans within the Constants for simple reference.~~
 	
 * ~~Icons~~
 	* ~~Use custom icons for the app~~
@@ -59,13 +59,13 @@ Below is the current outline for what I would like to get done in the 2 day wind
 		* ~~hdpi~~
 		* ~~mdpi~~
 
-* Res Dimens
-	* If time permits, utilize dimens.xml to have screen-specific sizes to work with on UI element scaling
+* ~~Res Dimens~~
+	* ~~If time permits, utilize dimens.xml to have screen-specific sizes to work with on UI element scaling~~
 		
-* UI Components
-	* Make heavy use of Recyclerviews (look into making mutli-purpose adapter)
+* ~~UI Components~~
+	* ~~Make heavy use of Recyclerviews (look into making mutli-purpose adapter)~~
 		
-* Animations
+* Animations - Skipped for now
 	* If time permits, add in animations to UI elements
 	* Also add in loading view / progress bar with custom animation built into it
 	
