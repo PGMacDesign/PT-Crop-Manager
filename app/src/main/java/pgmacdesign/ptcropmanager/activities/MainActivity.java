@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentManager;
 import pgmacdesign.ptcropmanager.R;
 import pgmacdesign.ptcropmanager.customui.HiveProgressBar;
 import pgmacdesign.ptcropmanager.fragments.CropsFragment;
+import pgmacdesign.ptcropmanager.interfaces.FragmentNetworkListener;
 import pgmacdesign.ptcropmanager.interfaces.MainActivityListener;
 
 /**
@@ -130,16 +131,20 @@ public class MainActivity extends ParentActivity implements
      * Setup the first fragment
      */
     private void setupFirstFragment() {
-        this.getMyFragmentManager().beginTransaction()
-                .add(CONTAINER_FRAGMENT_INT,
-                        ((MainActivity.this.getMyFragmentManager()
-                                .findFragmentByTag(MainActivity.this.getString(R.string.crops)) != null)
-                                ? ((CropsFragment) (MainActivity.this.getMyFragmentManager()
-                                .findFragmentByTag(MainActivity.this.getString(R.string.crops))))
-                                : new CropsFragment()),
-                        MainActivity.this.getString(R.string.crops))
-                .commit();
-        MainActivity.this.setToolbarTitle(MainActivity.this.getString(R.string.crops));
+        try {
+            this.getMyFragmentManager().beginTransaction()
+                    .add(CONTAINER_FRAGMENT_INT,
+                            ((MainActivity.this.getMyFragmentManager()
+                                    .findFragmentByTag(MainActivity.this.getString(R.string.crops)) != null)
+                                    ? ((CropsFragment) (MainActivity.this.getMyFragmentManager()
+                                    .findFragmentByTag(MainActivity.this.getString(R.string.crops))))
+                                    : new CropsFragment()),
+                            MainActivity.this.getString(R.string.crops))
+                    .commit();
+            MainActivity.this.setToolbarTitle(MainActivity.this.getString(R.string.crops));
+        } catch (IllegalStateException ile){
+            //This can trigger on rotation change if lost in memory
+        }
     }
 
     //endregion
@@ -228,19 +233,6 @@ public class MainActivity extends ParentActivity implements
 
     }
 
-    /**
-     * Change the app to function in offline mode
-     */
-    private void setToOfflineMode() {
-
-    }
-
-    /**
-     * Change the app to function in online mode
-     */
-    private void setToOnlineMode() {
-
-    }
 
     //endregion
 
@@ -258,13 +250,24 @@ public class MainActivity extends ParentActivity implements
             //Has internet, take action
             if (this.justShowedNoConnectivity) {
                 this.justShowedNoConnectivity = false;
-                this.setToOnlineMode();
                 this.showConnectedSnackbar(true);
             }
         } else {
             //No internet, take action
-            this.setToOfflineMode();
             this.showDisconnectedSnackbar(true);
+        }
+        //Tell child fragment of internet change:
+        try {
+            ((FragmentNetworkListener)((MainActivity.this.getMyFragmentManager()
+                    .findFragmentByTag(MainActivity.this.getString(R.string.crops)) != null)
+                    ? ((CropsFragment) (MainActivity.this.getMyFragmentManager()
+                    .findFragmentByTag(MainActivity.this.getString(R.string.crops))))
+                    : new CropsFragment())).connectedToTheInternet(isConnected);
+        } catch (NullPointerException e){
+            //Can trigger if state is changing while internet does as well
+            e.printStackTrace();
+        } catch (IllegalStateException ile){
+            //This can trigger on rotation change if lost in memory
         }
     }
 

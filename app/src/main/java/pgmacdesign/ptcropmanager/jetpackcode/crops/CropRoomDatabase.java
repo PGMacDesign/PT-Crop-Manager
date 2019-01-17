@@ -1,13 +1,20 @@
-package pgmacdesign.ptcropmanager.jetpackcode;
+package pgmacdesign.ptcropmanager.jetpackcode.crops;
 
 import android.content.Context;
 
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import pgmacdesign.ptcropmanager.datamodels.responsemodels.Crop;
 
 /**
  * Crops Room Database Abstract class for extending and access
  */
+@Database(
+        entities = {Crop.class},
+        version = 1,
+        exportSchema = true
+)
 public abstract class CropRoomDatabase extends RoomDatabase {
 
     /**

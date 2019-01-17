@@ -20,6 +20,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -29,6 +31,8 @@ import pgmacdesign.ptcropmanager.adapters.AdapterCropsRecyclerview;
 import pgmacdesign.ptcropmanager.customui.ZoomableImageDialog;
 import pgmacdesign.ptcropmanager.datamodels.responsemodels.Crop;
 import pgmacdesign.ptcropmanager.datamodels.responsemodels.Photo;
+import pgmacdesign.ptcropmanager.jetpackcode.crops.CropViewModel;
+import pgmacdesign.ptcropmanager.jetpackcode.photos.PhotoViewModel;
 import pgmacdesign.ptcropmanager.misc.Constants;
 import pgmacdesign.ptcropmanager.networking.APICalls;
 
@@ -52,8 +56,13 @@ public class CropsFragment extends ParentFragment  {
     private List<Photo> mListPhotos;
     private int cropsLastPageNumber, photosLastPageNumber,
             cropsRecyclerviewPosition, photosRecyclerviewPosition;
-    private boolean isConnectedToTheInternet;
+    private boolean isConnectedToTheInternet, hasLostInternetOnce, loadingDouble;
     private ZoomableImageDialog zoomableImageDialog;
+    private CropViewModel cropViewModel;
+    private PhotoViewModel photoViewModel;
+    private Observer<List<Crop>> cropRoomObserver;
+    private Observer<List<Photo>> photoRoomObserver;
+
 
     //endregion
 
@@ -87,6 +96,7 @@ public class CropsFragment extends ParentFragment  {
     @Override
     public void onStart() {
         super.onStart();
+        this.loadingDouble = true;
         this.getCrops(++cropsLastPageNumber);
         this.getPhotos(++photosLastPageNumber);
     }
@@ -96,6 +106,7 @@ public class CropsFragment extends ParentFragment  {
      */
     private void initVariables(){
         this.isConnectedToTheInternet = true;
+        this.hasLostInternetOnce = this.loadingDouble = false;
         this.cropsLastPageNumber = this.photosLastPageNumber =
                 this.cropsRecyclerviewPosition = this.photosRecyclerviewPosition = 0;
         this.onPhotoClickListener = new OnTaskCompleteListener() {
@@ -124,8 +135,7 @@ public class CropsFragment extends ParentFragment  {
             public void onTaskComplete(Object result, int customTag) {
                 switch (customTag){
                     case Constants.TAG_CROP:
-                        Crop crop = (Crop) result;
-                        // TODO: open up new activity from crop result
+                        //todo Omitted for now. May come back later to make separate UI for this
                         break;
                 }
             }
@@ -196,6 +206,20 @@ public class CropsFragment extends ParentFragment  {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         };
+        this.cropViewModel = ViewModelProviders.of(this).get(CropViewModel.class);
+        this.photoViewModel = ViewModelProviders.of(this).get(PhotoViewModel.class);
+        this.cropRoomObserver = new Observer<List<Crop>>() {
+            @Override
+            public void onChanged(List<Crop> crops) {
+                CropsFragment.this.cropsAdapter.setCrops(crops);
+            }
+        };
+        this.photoRoomObserver = new Observer<List<Photo>>() {
+            @Override
+            public void onChanged(List<Photo> photos) {
+                CropsFragment.this.photosAdapter.setPhotos(photos);
+            }
+        };
     }
 
     /**
@@ -260,13 +284,38 @@ public class CropsFragment extends ParentFragment  {
 
     @Override
     public void connectedToTheInternet(boolean isConnected) {
+        if(!isConnected){
+            this.hasLostInternetOnce = true;
+        }
+        L.m("connectedToTheInternet hit: " + isConnected);
         this.isConnectedToTheInternet = isConnected;
         if(!isConnected){
             this.crops_fragment_top_tv.setVisibility(View.VISIBLE);
-            // TODO: 1/17/2019 switch here on which is loading
+
+            this.cropViewModel.getAllCrops().observe(CropsFragment.this, cropRoomObserver);
+            this.photoViewModel.getAllPhotos().observe(CropsFragment.this, photoRoomObserver);
+            CropsFragment.this.crops_fragment_recyclerview_crops.scrollToPosition(0);
+            CropsFragment.this.crops_fragment_recyclerview_photos.scrollToPosition(0);
+
         } else {
+            //Remove non-internet observers
+            try {
+                this.cropViewModel.getAllCrops().removeObserver(cropRoomObserver);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            try {
+                this.photoViewModel.getAllPhotos().removeObserver(photoRoomObserver);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
             this.crops_fragment_top_tv.setVisibility(View.GONE);
-            // TODO: 1/17/2019 switch here on which is loading
+            if(this.hasLostInternetOnce){
+                this.hasLostInternetOnce = false;
+                this.loadingDouble = true;
+                getCrops(0);
+                getPhotos(0);
+            }
         }
     }
 
@@ -283,15 +332,22 @@ public class CropsFragment extends ParentFragment  {
             pageNum = 1;
             this.mListPhotos = new ArrayList<>();
         }
+        if(!isConnectedToTheInternet) {
+            return;
+        }
         this.listener.showOrHideLoadingAnimation(true);
         APICalls.getPhotos(new OnTaskCompleteListener() {
             @Override
             public void onTaskComplete(Object result, int customTag) {
-                listener.showOrHideLoadingAnimation(false);
+                if(!loadingDouble) {
+                    listener.showOrHideLoadingAnimation(false);
+                }
                 if(customTag == Constants.TAG_LIST_OF_PHOTOS){
                     loadPhotos((List<Photo>) result);
                 } else {
-                    L.toast(context, context.getString(R.string.no_photos));
+                    if(isConnectedToTheInternet) {
+                        L.toast(context, context.getString(R.string.no_photos));
+                    }
                 }
             }
         }, pageNum);
@@ -305,6 +361,7 @@ public class CropsFragment extends ParentFragment  {
         if(!MiscUtilities.isListNullOrEmpty(photos)){
             this.initLists();
             this.mListPhotos.addAll(photos);
+            this.photoViewModel.insert(photos);
             this.photosAdapter.setPhotos(this.mListPhotos);
         }
     }
@@ -318,15 +375,21 @@ public class CropsFragment extends ParentFragment  {
             pageNum = 1;
             this.mListCrops = new ArrayList<>();
         }
+        if(!isConnectedToTheInternet) {
+            return;
+        }
         this.listener.showOrHideLoadingAnimation(true);
         APICalls.getCrops(new OnTaskCompleteListener() {
             @Override
             public void onTaskComplete(Object result, int customTag) {
                 listener.showOrHideLoadingAnimation(false);
+                loadingDouble = false;
                 if(customTag == Constants.TAG_LIST_OF_CROPS){
                     loadCrops((List<Crop>) result);
                 } else {
-                    L.toast(context, context.getString(R.string.no_crops));
+                    if(isConnectedToTheInternet) {
+                        L.toast(context, context.getString(R.string.no_crops));
+                    }
                 }
             }
         }, pageNum);
@@ -340,6 +403,7 @@ public class CropsFragment extends ParentFragment  {
         if(!MiscUtilities.isListNullOrEmpty(crops)){
             this.initLists();
             this.mListCrops.addAll(crops);
+            this.cropViewModel.insert(crops);
             this.cropsAdapter.setCrops(this.mListCrops);
         }
     }

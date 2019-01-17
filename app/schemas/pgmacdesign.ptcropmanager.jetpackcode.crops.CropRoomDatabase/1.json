@@ -1,0 +1,125 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "06b8e6425a97607dca92ab4dbc06db4a",
+    "entities": [
+      {
+        "tableName": "Crops",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `name` TEXT, `wikiUrl` TEXT, `created_at` TEXT, `updatedAt` TEXT, `slug` TEXT, `parentId` INTEGER, `plantings_count` INTEGER, `creator_id` INTEGER, `median_lifespan` INTEGER, `median_days_to_first_harvest` INTEGER, `median_days_to_last_harvest` INTEGER, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "wikiUrl",
+            "columnName": "wikiUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "slug",
+            "columnName": "slug",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parentId",
+            "columnName": "parentId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "plantings_count",
+            "columnName": "plantings_count",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "creator_id",
+            "columnName": "creator_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "median_lifespan",
+            "columnName": "median_lifespan",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "median_days_to_first_harvest",
+            "columnName": "median_days_to_first_harvest",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "median_days_to_last_harvest",
+            "columnName": "median_days_to_last_harvest",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_Crops_median_lifespan",
+            "unique": false,
+            "columnNames": [
+              "median_lifespan"
+            ],
+            "createSql": "CREATE  INDEX `index_Crops_median_lifespan` ON `${TABLE_NAME}` (`median_lifespan`)"
+          },
+          {
+            "name": "index_Crops_median_days_to_first_harvest",
+            "unique": false,
+            "columnNames": [
+              "median_days_to_first_harvest"
+            ],
+            "createSql": "CREATE  INDEX `index_Crops_median_days_to_first_harvest` ON `${TABLE_NAME}` (`median_days_to_first_harvest`)"
+          },
+          {
+            "name": "index_Crops_median_days_to_last_harvest",
+            "unique": false,
+            "columnNames": [
+              "median_days_to_last_harvest"
+            ],
+            "createSql": "CREATE  INDEX `index_Crops_median_days_to_last_harvest` ON `${TABLE_NAME}` (`median_days_to_last_harvest`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"06b8e6425a97607dca92ab4dbc06db4a\")"
+    ]
+  }
+}

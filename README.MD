@@ -10,9 +10,10 @@ The other useful part of this project is that I am essentially writing a Java / 
 
 Below is the current outline for what I would like to get done in the 2 day window I have alloted: 
 
-* Manifest
+* ~~Manifest~~
 	* ~~Manifest declated with permissions as well as broadcast receivers.~~
 	* ~~Will add File Providers if needed - Not needed~~
+	* ~~Broadcast receivers as well as check for Nougat or above to confirm Broadcast receiver registered properly~~
 	
 * ~~Documentation~~
 	* ~~All docs should be in standard Javadoc format. (will be generated at the end of the 2 days)~~
@@ -38,12 +39,12 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* ~~Standard MyApplication class as central singleton with initilized fields upon load.~~
 	* ~~Decided to scale things back a bit for simplicity. Will leave the API Interface as is and just ignore unused endpoints.~~
 	
-* Android Jetpack
-	* I'd also like to make use of the new Android Jetpack modules, specifically the following:
-		* Rooms
-		* ViewModel
-	* Implement Observers using ViewModel + Room combo on any visible Recyclerviews
-	* Utilize View models to maintain state upon rotation 
+* ~~Android Jetpack~~
+	* ~~I'd also like to make use of the new Android Jetpack modules, specifically the following:~~
+		* ~~Rooms~~
+		* ~~ViewModel~~
+	* ~~Implement Observers using ViewModel + Room combo on any visible Recyclerviews~~
+	* ~~Utilize View models to maintain state upon rotation~~
 
 * Constants
 	* ~~Utilize integer tags in combination with my library's [On Task Complete Listener](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/adaptersandlisteners/OnTaskCompleteListener.java) to ping back responses for web calls~~

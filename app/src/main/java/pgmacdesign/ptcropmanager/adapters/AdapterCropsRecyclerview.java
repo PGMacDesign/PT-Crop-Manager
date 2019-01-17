@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.pgmacdesign.pgmactips.adaptersandlisteners.OnTaskCompleteListener;
 import com.pgmacdesign.pgmactips.utilities.ImageUtilities;
+import com.pgmacdesign.pgmactips.utilities.L;
 import com.pgmacdesign.pgmactips.utilities.MiscUtilities;
 import com.pgmacdesign.pgmactips.utilities.NumberUtilities;
 import com.pgmacdesign.pgmactips.utilities.StringUtilities;
@@ -239,6 +240,7 @@ public class AdapterCropsRecyclerview extends RecyclerView.Adapter<RecyclerView.
      * @param photos
      */
     public void setPhotos(List<Photo> photos){
+        L.m("Set photos within adapter, size == " + (MiscUtilities.isListNullOrEmpty(photos) ? 0 : photos.size()));
         this.mListPhotos = photos;
         this.notifyDataSetChanged();
     }

@@ -26,7 +26,11 @@ public abstract class ParentActivity extends AppCompatActivity implements PGConn
 
     @Override
     protected void onStart() {
-        super.onStart();
+        try {
+            super.onStart();
+        } catch (IllegalStateException ile){
+            //Can trigger on bad rotation management
+        }
         MyApplication.setConnectivityListener(this);
     }
 

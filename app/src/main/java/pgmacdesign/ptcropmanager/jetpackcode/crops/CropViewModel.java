@@ -1,6 +1,7 @@
-package pgmacdesign.ptcropmanager.jetpackcode;
+package pgmacdesign.ptcropmanager.jetpackcode.crops;
 
 import android.app.Application;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 
 import com.pgmacdesign.pgmactips.utilities.MiscUtilities;
@@ -41,6 +42,12 @@ public class CropViewModel extends AndroidViewModel {
 
     public void insert(Crop crop){
         new DBCreateAsync(cropsDao).execute(crop);
+    }
+
+    public void insert(List<Crop> crops){
+        if(!MiscUtilities.isListNullOrEmpty(crops)){
+            new DBCreateAsync(cropsDao).execute(crops.toArray(new Crop[crops.size()]));
+        }
     }
 
     public LiveData<List<Crop>> getAllCrops(){
@@ -103,7 +110,11 @@ public class CropViewModel extends AndroidViewModel {
             if(!MiscUtilities.isArrayNullOrEmpty(cropPOJOS)) {
                 for (Crop n : cropPOJOS) {
                     if (n != null) {
-                        this.cropsDao.insert(n);
+                        try {
+                            this.cropsDao.insert(n);
+                        } catch (SQLiteConstraintException e){
+                            //This will trigger if unique Constraint is triggered. no reason to log it
+                        }
                     }
                 }
             }
