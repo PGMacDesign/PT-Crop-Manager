@@ -99,5 +99,9 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.1'
     //endregion
 
+    //My Utilities library
     implementation ('com.github.PGMacDesign:PGMacTips:0.0.74')
+
+    //Hive progress bar. Link: https://github.com/zjywill/OverwatchProgress
+    implementation 'com.github.zjywill:OverwatchProgress:1.5'
 }

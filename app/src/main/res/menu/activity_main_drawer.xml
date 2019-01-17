@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="">
+            <menu>
+                <item
+                    android:id="@+id/nav_id_home"
+                    android:icon="@mipmap/home_icon"
+                    android:title="@string/home" />
+
+                <item
+                    android:id="@+id/nav_id_crops"
+                    android:icon="@mipmap/carrot_black"
+                    android:title="@string/crops" />
+
+                <item
+                    android:id="@+id/nav_id_gardens"
+                    android:icon="@mipmap/garden_black"
+                    android:title="@string/gardens" />
+
+                <item
+                    android:id="@+id/nav_id_members"
+                    android:icon="@mipmap/group_people_black"
+                    android:title="@string/members" />
+
+                <item
+                    android:id="@+id/nav_id_seeds"
+                    android:icon="@mipmap/sprout_black"
+                    android:title="@string/seeds" />
+
+            </menu>
+        </item>
+    </group>
+
+
+</menu>

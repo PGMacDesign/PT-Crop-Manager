@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Transparent">
+
+
+    <com.comix.overwatch.HiveProgressView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/hive_progress_view"
+        app:hive_animDuration="2000"
+        app:hive_color="@color/colorPrimaryDarkest"
+        app:hive_maxAlpha="255"
+        app:hive_cornerRadius="20"
+        app:hive_shrink="true"
+        />
+
+
+    <!--<com.jaredrummler.android.widget.AnimatedSvgView-->
+    <!--android:background="@color/Transparent"-->
+    <!--android:id="@+id/my_animated_svg_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="32dp"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--lib:animatedSvgFillStart="500"-->
+    <!--lib:animatedSvgFillTime="1400"-->
+    <!--lib:animatedSvgTraceTime="1400"-->
+    <!--lib:animatedSvgTraceTimePerGlyph="1400"-->
+    <!--lib:animatedSvgImageSizeX="100"-->
+    <!--lib:animatedSvgImageSizeY="100"-->
+    <!--lib:animatedSvgGlyphStrings="@array/svg_image2"-->
+    <!--lib:animatedSvgTraceColors="@array/svg_trace_colors"-->
+    <!--lib:animatedSvgFillColors="@array/svg_fill_colors"-->
+    <!--/>-->
+
+</RelativeLayout>

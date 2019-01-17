@@ -18,6 +18,7 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* All docs should be in standard Javadoc format. (will be generated at the end of the 2 days)
     * All classes should have documentation above them.
 	* Applicable methods and functions should also have documentation.
+	* Make sure to use //region and //endregion tags for simpler code folding
 	
 * ~~Data models~~
 	* ~~Mirror from [website](https://github.com/Growstuff/growstuff/wiki/API-Version-0) - Will need to make individual calls in order to manually view responses.~~
@@ -29,7 +30,7 @@ Below is the current outline for what I would like to get done in the 2 day wind
 
 * Connectivity Checks
 	* ~~Add in connectivity receiver to confirm internet availability before calls~~
-	* Utilize a snackbar for no internet connection
+	* ~~Utilize a snackbar for no internet connection~~
 	
 * Architecture
 	* App will follow standard app architecture logic and have an Activity with modular fragments 

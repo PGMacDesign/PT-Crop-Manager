@@ -1,8 +1,22 @@
 <resources>
-    <string name="app_name">PT Crop Manager</string>
+    <!-- region Nav Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- //endregion -->
 
+    <!-- region Regular App Strings -->
+    <string name="app_name">PT Crop Manager</string>
     <string name="connected_to_internet">Internet connectivity restored, switching to online mode.</string>
     <string name="not_connected_to_internet">Internet connectivity lost, switching to offline mode.</string>
     <string name="ok">Ok</string>
     <string name="dismiss">Dismiss</string>
+    <!-- //endregion -->
+
+    <!-- region Menu Strings -->
+    <string name="home">Home</string>
+    <string name="crops">Crops</string>
+    <string name="gardens">Gardens</string>
+    <string name="members">Members</string>
+    <string name="seeds">Seeds</string>
+    <!-- //endregion -->
 </resources>
