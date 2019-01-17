@@ -33,8 +33,8 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* ~~Utilize a snackbar for no internet connection~~
 	
 * Architecture
-	* App will follow standard app architecture logic and have an Activity with modular fragments 
-	* I'd like to use a navigation drawer if possible as they always look clean if done correctly
+	* ~~App will follow standard app architecture logic and have an Activity with modular fragments~~ 
+	* ~~I'd like to use a navigation drawer if possible as they always look clean if done correctly~~
 	* ~~Standard MyApplication class as central singleton with initilized fields upon load.~~
 	
 * Android Jetpack
@@ -45,18 +45,18 @@ Below is the current outline for what I would like to get done in the 2 day wind
 	* Utilize View models to maintain state upon rotation 
 
 * Constants
-	* Utilize integer tags in combination with my library's [On Task Complete Listener](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/adaptersandlisteners/OnTaskCompleteListener.java) to ping back responses for web calls
+	* ~~Utilize integer tags in combination with my library's [On Task Complete Listener](https://github.com/PGMacDesign/PGMacTips/blob/master/library/src/main/java/com/pgmacdesign/pgmactips/adaptersandlisteners/OnTaskCompleteListener.java) to ping back responses for web calls~~
 	* Maintain any other needed tags, flags, or booleans within the Constants for simple reference.
 	
 * Icons
 	* Use custom icons for the app
-	* Use various icons for the different nav bar icons to differentiate sections
-	* Make sure icons mirror Android standards of:
-		* xxxdpi
-		* xxdpi
-		* xdpi
-		* hdpi
-		* mdpi
+	* ~~Use various icons for the different nav bar icons to differentiate sections~~
+	* ~~Make sure icons mirror Android standards of:~~
+		* ~~xxxdpi~~
+		* ~~xxdpi~~
+		* ~~xdpi~~
+		* ~~hdpi~~
+		* ~~mdpi~~
 
 * Res Dimens
 	* If time permits, utilize dimens.xml to have screen-specific sizes to work with on UI element scaling
